@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <script defer src="./app.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-blue-100 min-h-screen flex items-center justify-center py-8">   
+    <main class="lg:w-[70%] w-[90%]">
+      <header class="space-y-4">
+        <div class="flex items-center justify-between bg-white p-2 rounded shadow-sm">
+          <img src="./assets/images/logo.svg" alt="Browser Extensions Manager logo" class="h-8 w-auto" loading="lazy">
+
+          <button id="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode" class="p-2 rounded  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-400">
+            <img src="./assets/images/icon-moon.svg" alt="" class="h-5 w-5" aria-hidden="true">
+          </button>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-center md:justify-between">
+          <h1 class="font-bold text-[1.2rem]" id="hd-h1">Extensions List</h1>
+
+          <div class="gap-3 flex" id="hbtn">
+            <button class="focus:ring-2 focus:ring-red-400 bg-white border-gray-100 px-4 py-1 shadow hover:shadow-2xl rounded-xl" id="All-ext">All</button>
+            <button class="focus:ring-2 focus:ring-red-400 bg-white border-gray-100 px-4 py-1 shadow hover:shadow-2xl rounded-xl" id="active">Active</button>
+            <button class="focus:ring-2 focus:ring-red-400 bg-white border-gray-100 px-4 py-1 shadow hover:shadow-2xl rounded-xl" id="Inactive">Inactive</button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="mt-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6" id="extensions-container">
+          <!-- Extensions will be dynamically inserted here -->
+        </section>
+      </main>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+.dark-mode {
+    background-color: #1a202c; /* Dark background color */
+    color: #f7fafc; /* Light text color */
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 33%, rgba(24, 5, 133, 1) 99%);
+}
+
+.dark-mode header div:nth-child(1){
+   background-color: #3d3d3d;
+}
+
+.dark-mode #theme-toggle:hover{
+   background-color: rgb(255, 79, 79);
+}
+
+.dark-mode #hbtn button{
+   background-color: #4a5568;
+   color: #f7fafc;
+}
+
+.dark-mode .extensions {
+   background-color: #3d3d3d;
+}
+
+.hidden {
+    display: none;
+}  
