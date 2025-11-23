@@ -108,7 +108,7 @@ themeToggle.addEventListener("click", () => {
 allExt.addEventListener("click", () => {
   document.getElementById(
     "extensions-container"
-  ).innerHTML = `   <section   class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+  ).innerHTML = `   <section   class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="0">
             <div class="flex gap-3">
               <img src="${tools[0].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -126,7 +126,7 @@ allExt.addEventListener("click", () => {
           </section>
 
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="1">
             <div class="flex gap-3">
               <img src="${tools[1].logo}" class="w-[3rem]" alt="style spy logo" />
               <div class="text-[0.9rem] font-light">
@@ -143,7 +143,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="2">
             <div class="flex gap-3">
               <img src="${tools[2].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -160,7 +160,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="3">
             <div class="flex gap-3">
               <img src="${tools[3].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -177,7 +177,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="4">
             <div class="flex gap-3">
               <img src="${tools[4].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -194,7 +194,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="5">
             <div class="flex gap-3">
               <img src="${tools[5].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -211,7 +211,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="6">
             <div class="flex gap-3">
               <img src="${tools[6].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -228,7 +228,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="7">
             <div class="flex gap-3">
               <img src="${tools[7].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -245,7 +245,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="8">
             <div class="flex gap-3">
               <img src="${tools[8].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -262,7 +262,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="9">
             <div class="flex gap-3">
               <img src="${tools[9].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -279,7 +279,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="10">
             <div class="flex gap-3">
               <img src="${tools[10].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -296,7 +296,7 @@ allExt.addEventListener("click", () => {
             </div>
           </section>
 
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl">
+          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="11">
             <div class="flex gap-3">
               <img src="${tools[11].logo}" class="w-[3rem]" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
@@ -317,9 +317,10 @@ allExt.addEventListener("click", () => {
 
   let removeBtn = document.querySelectorAll(".remove");
 
-  removeBtn.forEach((btn) => { 
+  removeBtn.forEach((btn, index) => { 
     btn.addEventListener("click", () => {
-      // tools.splice(index, 1); 
+      tools.splice(index, 1); 
+      console.log()
       // btn.parentElement.parentElement.remove(); 
       btn.closest(".extensions").remove();
     });

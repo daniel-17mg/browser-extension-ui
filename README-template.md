@@ -8,15 +8,12 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -56,7 +53,6 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Font Awesome icons (v7.0.1)
 - Mobile-first responsive design
 
-### What I learned
 
 #### 1. **DOM Manipulation & Event Handling**
 
@@ -106,7 +102,6 @@ Used semantic HTML5 elements and ARIA attributes for better accessibility:
 #### 5. **Managing Component State**
 
 Worked with arrays of objects to represent extension data and learned how to filter and display data based on user selections (All, Active, Inactive).
-
 
 #### Areas for Enhancement:
 
