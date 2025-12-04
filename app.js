@@ -104,204 +104,75 @@ themeToggle.addEventListener("click", () => {
     themeToggle.querySelector("img").setAttribute("alt", "Dark mode icon");
   }
 });
-
+let currentFilter = "all";
 allExt.addEventListener("click", () => {
-  document.getElementById(
-    "extensions-container"
-  ).innerHTML = `   <section   class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="0">
+  currentFilter = "all";
+  renderTools();
+
+
+});
+
+function attachTogglerEvents() {
+  let togglers = document.querySelectorAll(".toggler");
+  togglers.forEach((toggler) => {
+    toggler.addEventListener("click", (e) => {
+      const section = toggler.closest("section");
+      const index = Number(section.dataset.index);
+      tools[index].isActive = !tools[index].isActive;
+      renderTools();
+    });
+  });
+}
+
+
+function attachRemoveEvents() {
+  let remove = document.querySelectorAll(".remove");
+  remove.forEach((btn) => {
+    btn.addEventListener("click", () => {
+       const section = btn.closest("section");
+      const index = Number(section.dataset.index);
+      tools.splice(index, 1);
+      btn.parentElement.parentElement.remove();
+    });
+  });
+}
+
+function renderTools() {
+  let toolContainer = document.getElementById("extensions-container");
+  if (currentFilter === "all") {
+    toolContainer.innerHTML = "";
+    tools.forEach((item, index) => {
+      toolContainer.innerHTML += ` <section data-index="${index}" class="extensions flex-col justify-between flex h-44 bg-white shadow-2xl p-4 rounded-xl" data-id="0">
             <div class="flex gap-3">
-              <img src="${tools[0].logo}" class="w-[3rem]" alt="devlens logo" />
+              <img src="${item.logo}" class="w-12" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[0].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[0].description}</p>
+                <h1 class="font-bold">${item.name}</h1>
+                <p class="text-[0.8rem] font-light opacity-55">${item.description}</p>
               </div>
             </div>
 
             <div class="flex justify-between">
               <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
               <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
+                <i class="fa ${item.isActive ? "fa-toggle-on" : "fa-toggle-off"}  fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
               </button>
             </div>
-          </section>
+          </section>`;
+      
+    attachTogglerEvents();
+    attachRemoveEvents();
+    });
 
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="1">
+  } else if (currentFilter === "active") {
+    let activeTools = tools.filter((tool) => tool.isActive);
+    toolContainer.innerHTML = "";
+    activeTools.forEach((item) => {
+      toolContainer.innerHTML += ` <section   class="extensions flex-col justify-between flex h-44 bg-white shadow-2xl p-4 rounded-xl" data-id="0">
             <div class="flex gap-3">
-              <img src="${tools[1].logo}" class="w-[3rem]" alt="style spy logo" />
+              <img src="${item.logo}" class="w-12" alt="devlens logo" />
               <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[1].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[1].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="2">
-            <div class="flex gap-3">
-              <img src="${tools[2].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[2].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[2].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="3">
-            <div class="flex gap-3">
-              <img src="${tools[3].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[3].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[3].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="4">
-            <div class="flex gap-3">
-              <img src="${tools[4].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[4].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[4].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="5">
-            <div class="flex gap-3">
-              <img src="${tools[5].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[5].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[5].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="6">
-            <div class="flex gap-3">
-              <img src="${tools[6].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[6].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[6].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="7">
-            <div class="flex gap-3">
-              <img src="${tools[7].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[7].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[7].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="8">
-            <div class="flex gap-3">
-              <img src="${tools[8].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[8].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[8].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="9">
-            <div class="flex gap-3">
-              <img src="${tools[9].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[9].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[9].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="10">
-            <div class="flex gap-3">
-              <img src="${tools[10].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[10].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[10].description}</p>
-              </div>
-            </div>
-
-            <div class="flex justify-between">
-              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
-              <button class="">
-                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
-              </button>
-            </div>
-          </section>
-
-          <section  class="extensions flex-col justify-between flex h-[11rem] bg-white shadow-2xl p-4 rounded-xl" data-id="11">
-            <div class="flex gap-3">
-              <img src="${tools[11].logo}" class="w-[3rem]" alt="devlens logo" />
-              <div class="text-[0.9rem] font-light">
-                <h1 class="font-bold">${tools[11].name}</h1>
-                <p class="text-[0.8rem] font-light opacity-55">${tools[11].description}</p>
+                <h1 class="font-bold">${item.name}</h1>
+                <p class="text-[0.8rem] font-light opacity-55">${item.description}</p>
               </div>
             </div>
 
@@ -312,57 +183,41 @@ allExt.addEventListener("click", () => {
               </button>
             </div>
           </section>`;
-
-  let toggler = document.querySelectorAll(".toggler");
-
-  let removeBtn = document.querySelectorAll(".remove");
-
-  removeBtn.forEach((btn, index) => { 
-    btn.addEventListener("click", () => {
-      tools.splice(index, 1); 
-      console.log()
-      // btn.parentElement.parentElement.remove(); 
-      btn.closest(".extensions").remove();
     });
-  });
-
-  toggler.forEach((buttons, index) => {
-    buttons.addEventListener("click", () => {
-      
-      
-      // button.classList.toggle("fa-toggle-on", tools[index].isActive);
-      // button.classList.toggle("fa-toggle-off", !tools[index].isActive);
-      
-      
-      if (tools[index].isActive === true) {
-        buttons.classList.remove("fa-toggle-off");
-        buttons.classList.add("fa-toggle-on");
-      } else {
-        buttons.classList.remove("fa-toggle-on");
-        buttons.classList.add("fa-toggle-off");
-      }
-      tools[index].isActive = !tools[index].isActive;
-    });
-  });
-  
-  const ext = document.querySelectorAll(".extensions");
-
-  active.addEventListener("click", () => { 
-  
-    ext.forEach((exts, index) => { 
-        exts.classList.toggle("hidden", tools[index].isActive);
     
-      // console.log(exts);
+  } else if (currentFilter === "inactive") {
+    let inactiveTools = tools.filter((tool) => !tool.isActive);
+    toolContainer.innerHTML = "";
+    inactiveTools.forEach((item) => {
+      toolContainer.innerHTML += ` <section   class="extensions flex-col justify-between flex h-44 bg-white shadow-2xl p-4 rounded-xl" data-id="0">
+            <div class="flex gap-3">
+              <img src="${item.logo}" class="w-12" alt="devlens logo" />
+              <div class="text-[0.9rem] font-light">
+                <h1 class="font-bold">${item.name}</h1>
+                <p class="text-[0.8rem] font-light opacity-55">${item.description}</p>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <button class="text-[0.8rem] border-gray-500 border rounded-2xl hover:bg-[rgb(186,80,80)] hover:border-[rgb(186,80,80)] p-1 remove">remove</button>
+              <button class="">
+                <i class="fa fa-toggle-off toggler text-[rgb(186,80,80)] text-2xl" aria-hidden="true" ></i>
+              </button>
+            </div>
+          </section>`;
     });
-  });
+  }
 
-  inactive.addEventListener("click", () => { 
-  
-    ext.forEach((exts, index) => { 
-        exts.classList.toggle("hidden", !tools[index].isActive);
-    
-      console.log(exts);
-    });
-  });
+
+}
+
+renderTools();
+
+active.addEventListener("click", () => {
+  currentFilter = "active";
+  renderTools();
 });
 
+inactive.addEventListener("click", () => {
+  currentFilter = "inactive";
+  renderTools();
+});
