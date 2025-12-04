@@ -132,7 +132,7 @@ function attachRemoveEvents() {
        const section = btn.closest("section");
       const index = Number(section.dataset.index);
       tools.splice(index, 1);
-      btn.parentElement.parentElement.remove();
+      renderTools();
     });
   });
 }
@@ -184,7 +184,7 @@ function renderTools() {
             </div>
           </section>`;
     });
-    
+
   } else if (currentFilter === "inactive") {
     let inactiveTools = tools.filter((tool) => !tool.isActive);
     toolContainer.innerHTML = "";
